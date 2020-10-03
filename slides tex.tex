@@ -1,0 +1,1071 @@
+\documentclass[t,14pt,mathserif]{beamer}
+
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+\fontfamily{cmr}\selectfont
+
+\usepackage{ragged2e}
+\usepackage[flushleft]{threeparttable}
+\usepackage{tabularx}
+
+\usepackage{graphicx}
+\graphicspath{ {./desktop/} }
+
+\usepackage{blindtext}
+\usepackage{booktabs,mathrsfs}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+
+
+
+\documentclass[t,14pt,mathserif]{beamer}
+
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+\fontfamily{cmr}\selectfont
+
+\usepackage{ragged2e}
+\usepackage[flushleft]{threeparttable}
+\usepackage{tabularx}
+
+\usepackage{graphicx}
+\graphicspath{ {./desktop/} }
+
+\usepackage{blindtext}
+\usepackage{booktabs,mathrsfs}
+\usepackage{tcolorbox}
+\usepackage{amsmath} 
+
+
+
+% Copyright 2012 by Aécio S. R. Santos <aecio.solando@gmail.com>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice.
+
+% Redefines the font type
+\usepackage{helvet}
+\usefonttheme[onlymath]{serif}
+
+% Some useful colors
+\definecolor{lightblue}{rgb}{.0, .68, .84}
+\definecolor{black}{rgb}{0, 0, 0}
+\definecolor{gray}{rgb}{0.3, 0.3, 0.3}
+
+%
+% BLUE color scheme
+%
+\newcommand{\setcolorschemeblue}{
+	\definecolor{titlecolor}{rgb}{0, 0.37, 0.59}
+	\definecolor{bulletscolor}{rgb}{.0, .68, .84}
+	\definecolor{alertcolor}{rgb}{.0, .68, .84}
+}
+
+%
+% PURPLE color scheme
+%
+% Purple color pallete
+% base 0.35, 0.2, 0.55 (between h2 and h3)
+% h1   0.21, 0.1, 0.34 (darker)
+% h2   0.28, 0.2, 0.45
+% h3   0.44, 0.4, 0.70
+% h4   0.51, 0.2, 0.71 (lighter)
+%
+\newcommand{\setcolorschemepurple}{
+	\definecolor{titlecolor}{rgb}{0.35, 0.2, 0.55}
+	\definecolor{bulletscolor}{rgb}{0.44, 0.4, 0.70}
+	\definecolor{alertcolor}{rgb}{0.35, 0.2, 0.55}
+}
+
+%
+% GREEN color scheme
+%
+\newcommand{\setcolorschemegreen}{
+	\definecolor{titlecolor}{rgb}{0, 0.5, 0.48}
+	\definecolor{bulletscolor}{rgb}{0.2,0.2,0.7}
+	\definecolor{alertcolor}{rgb}{.0, .68, .84}
+}
+
+% Define default colors scheme
+\setcolorschemeblue
+
+% Define color of alert text
+\setbeamercolor{alerted text}{fg=alertcolor}
+
+% block environment
+%\setbeamertemplate{blocks}[rounded=true, shadow=true]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor*{block body}{fg=black,bg=titlecolor!20!white}
+%\setbeamercolor*{block title}{fg=titlecolor!70!black,bg=titlecolor!40!white}
+\setbeamercolor*{block title}{fg=titlecolor!10!white,bg=titlecolor!75!white}
+%\setbeamerfont{block title}{size=\large,series=\bf}
+
+% Define font sizes
+\setbeamerfont{frametitle}{parent=structure,size=\large}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\footnotesize}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{16pt}{17.6pt}}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{14pt}{15,4pt}}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+% Define font sizes for bibliography
+\setbeamerfont{bibliography entry author}{size=\small}
+\setbeamerfont{bibliography entry title}{size=\small}
+\setbeamerfont{bibliography entry location}{size=\small}
+\setbeamerfont{bibliography entry note}{size=\small}
+
+% Redefine the cover title fonts to be bold
+\setbeamerfont{title}{size=\large, series=\bfseries}
+
+% Redefine cover title color
+\setbeamercolor{title}{fg=titlecolor}
+
+% Redefine title color
+\setbeamercolor{frametitle}{fg=titlecolor,size=20pt}
+
+% Uncomment to redefine bullets with round format
+\useinnertheme[shadow]{rounded}
+\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{items}[ball]
+
+% Redefine table of content colors
+\setbeamercolor{section in toc}{fg=titlecolor}
+\setbeamercolor{subsection in toc}{fg=titlecolor!40!black}
+
+% Redefine bibliography colors
+\setbeamercolor{bibliography entry author}{fg=titlecolor!25!black}
+\setbeamercolor{bibliography entry title}{fg=titlecolor}
+\setbeamercolor{bibliography entry location}{fg=titlecolor!25!black}
+
+% Redefine bullets color
+\setbeamercolor*{item}{fg=bulletscolor}
+
+% Redefine spacing of left margin of bullets
+\setlength{\leftmargini}{1.3em}
+\setlength{\leftmarginii}{1em}
+\setlength{\leftmarginiii}{1em}
+
+% Redefine space between of items in 'itemize' enviroment
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{0.25pt}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+% Redefine space before a nested itemize
+\makeatletter
+\def\@listii{\leftmargin\leftmarginii
+	\topsep    0.9ex
+	\parsep    0\p@   \@plus\p@
+	\itemsep   \parsep}
+\makeatother
+
+
+% Redefine width of text area margins
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+% Define summary items depth
+\setcounter{tocdepth}{2}
+
+% Redefine styles of frames' title
+\setbeamertemplate{frametitle} {
+	\vspace{0.2cm}
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+	\begin{beamercolorbox}[]{frametitle}
+		\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+		\usebeamerfont{frametitle}{%
+			\strut\insertframetitle\strut\par%
+		}
+		{%
+			\ifx\insertframesubtitle\@empty%
+			\else
+			\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par
+			\fi
+			\vspace{-.9cm}%
+			{
+				\textcolor{gray} {\rule[5pt]{\linewidth}{.5pt}\vspace{-8pt}}
+			}
+		}%
+		\vskip-0.5ex%
+		\if@tempswa\else\vskip-.9cm\fi
+	\end{beamercolorbox}%
+	\vspace{0.2cm}
+}
+
+% Removes navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% Redefine footline to show only slide number
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+		%\hfill
+		\insertframenumber{}                             % Only current slide number
+		%\insertframenumber{} / \inserttotalframenumber  % Current slide number and total of slides
+		\hspace{2ex}
+	\end{beamercolorbox}
+}
+
+
+
+
+\title[ ] % (optional, use only with long paper titles)
+{Análise de Regressão Múltipla com Informações Qualitativas: \\ Variáveis Binárias (ou Dummy)}
+
+\subtitle
+{Wooldridge Cap. 7}
+
+
+\author[shortname]
+{Cleiton Guollo Taufemback \inst{1} 
+\and \\ Miguel Jandrey Natal \inst{2}}
+
+\institute[shortinst]{\inst{1} affiliation for author1 \and %
+                      \inst{2} affiliation for author2}
+\institute[Universidade Federal do Rio Grande do Sul] % (optional, but mostly needed)
+{
+	\inst{1}%
+	Departamento de Estatística\\ 
+	\and \inst{2} %
+    Mestrando em estágio docência (PPGEst)\\
+    \and
+    
+	Universidade Federal do Rio Grande do Sul
+	
+	}
+
+\date[ ] 
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+\begin{frame}{A Descrição das Informações Qualitativas}
+		\justifying
+		\vfill
+		Nos capítulos anteriores, as variáveis dependentes e independentes em nossos modelos de regressão múltipla tinham significado quantitativo. No trabalho empírico também devemos incorporar fatores qualitativos nos modelos de regressão.
+		\vfill
+		
+         O sexo ou raça de um indivíduo, o ramo de atividade de uma empresa (fabricante, varejista, etc.) e a região onde uma cidade está localizada (sul, norte, oeste etc.) são todos considerados fatores qualitativos.
+		\vfill
+	
+
+\end{frame}
+
+
+\begin{frame}{A Descrição das Informações Qualitativas}
+		\justifying
+		\vfill
+		Fatores qualitativos frequentemente aparecem na forma de informação binária: uma pessoa é do sexo feminino ou masculino; alguém possui ou não um computador pessoal, etc. Em todos esses exemplos, a informação relevante pode ser capturada pela definição de uma variável binária (também chamada de $dummy$) ou uma variável zero-um.
+		\vfill
+		
+         Ao definirmos uma variável $dummy$, precisamos decidir a qual evento será atribuído o valor um e a qual será atribuído o valor zero.
+		\vfill
+	
+
+\end{frame}
+
+\begin{frame}{A Descrição das Informações Qualitativas}
+		\justifying
+		\vfill
+	     Por que usamos os valores zero e um para descrever informações qualitativas? Em certo sentido, esses valores são arbitrários: quaisquer dois valores diferentes serviriam. 
+		\vfill
+		O benefício real de capturar informação qualitativa usando variáveis zero-um é que elas levam a modelos de regressão nos quais os parâmetros têm interpretações bastante naturais, como veremos agora.
+        
+		\vfill
+
+\end{frame}
+
+
+
+\begin{frame}{A Descrição das Informações Qualitativas}
+        \justifying
+		\vfill
+        A tabela a seguir fornece uma listagem parcial de um possível conjunto de dados sobre salários:
+		\vfill 
+		\footnotesize
+		\begin{equation}  
+		\begin{array}{|c|c|c|c|c|c|c|}
+		\hline \text { pessoa } & {\text { salário} } & {\text { educ }} & {\text { exper }} & {\text { feminino }} & {\text { casado}} \\
+		\hline 1 & {3.10} & {11} & {2} & {1} & {0} \\
+		\hline 2 & {3.24} & {12} & {22} & {1} & {1} \\
+		\hline 3 & {3.00} & {12} & {2} & {0} & {0} \\
+		\hline 4 & {6.00} & {8} & {44} & {0} & {1} \\
+		\hline 5 & {5.30} & {12} & {7} & {0} & {1} \\
+		\hline . & {.} & {.} & {.} & {.} & {.}  \\
+		\hline . & {.} & {.} & {.} & {.} & {.}  \\
+		\hline 525 & {11.56} & {16} & {5} & {0} & {1}  \\
+		\hline 526 & {3.50} & {14} & {5} & {1} & {0} \\
+		\hline
+		\end{array}\nonumber
+		\end{equation}
+\end{frame}
+
+\begin{frame}{A Descrição das Informações Qualitativas}
+		\justifying
+		\vfill 
+		Vemos que a Pessoa 1 é do sexo feminino e não é casada, a Pessoa 2 é do sexo feminino e é casada, a Pessoa 3 é do sexo masculino e não é casada, e assim por diante.
+		\vfill
+
+\end{frame}
+
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+		\justifying
+		\vfill 
+		Como incorporamos informações binárias em modelos de regressão? 
+		\vfill
+		No caso mais simples, com somente uma variável dummy explicativa, simplesmente adicionamos a variável à equação como uma variável independente.
+		\vfill
+       
+        
+\end{frame}
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+	   
+		\begin{tcolorbox}
+	Por exemplo, considere o seguinte modelo simples de determinação de salários por hora:
+		\begin{equation}
+		 { salarioh} =\beta_{0}+ \delta_{0} {feminino} + \beta_{1}  { educ }+u\label{23}
+		\end{equation}
+		No modelo (1), somente dois fatores observados afetam os salários: gênero e educação. Como feminino = 1 quando a pessoa é mulher e feminino = O quando a pessoa é homem, o parâmetro $\delta_{0}$ tem a seguinte interpretação: $ \delta $ é a diferença no salário por hora entre mulheres e homens, dado o mesmo grau de educação (e o mesmo termo erro $u$). 
+			
+		\end{tcolorbox}
+	\end{frame}
+
+
+
+\begin{frame}{Uma Única Variável Dummy Independente} 
+        \vfill
+		Em termos de expectativas, se assumirmos a hipótese de média condicional zero \mathrm{E}($u$|$feminino$,$educ$) = 0, então 
+         \begin{equation}
+		\begin{array}{crl}
+		 \delta_{0} = 
+		\mathrm{E}(salarioh|feminino = 1, educ)
+		 \\ \centerline{-} \\
+		\mathrm{E}(salarioh|feminino = 0, educ)
+		\end{array}\nonumber
+		\end{equation} 
+		    \justifying
+        	Como {\small $feminino$ = 1} corresponde a mulheres e {\small $feminino$ = 0} corresponde a homens, o importante aqui é que o nível de educação é o mesmo em ambas as expectativas; a diferença, $\delta_{0}$, deve-se somente ao gênero.
+		
+\end{frame}
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+		\justifying
+		\vfill 
+		A situação pode ser descrita graficamente como um deslocamento de intercepto entre as linhas que representam homens e mulheres.
+		\vfill
+		A diferença não depende do nível de educação, e isso explica a razão de os perfis salário-educação das mulheres e dos homens serem paralelos.
+		\vfill
+       
+\end{frame}
+
+
+	\begin{frame}{Uma Única Variável Dummy Independente}
+	\begin{figure}
+		\centering
+		\caption{$salarioh =\beta_{0}+ \delta_{0} {feminino} + \beta_{1}educ$ para $\delta_{0}$ < 0.} 
+		\includegraphics[width=.825\textwidth]{figuras/fig71.png}
+		\label{fig21}
+	\end{figure}
+	\end{frame}
+	
+\begin{frame}{Uma Única Variável Dummy Independente}
+		\justifying
+		\vfill 
+		Como podemos efetivamente testar a discriminação salarial? A resposta é simples: simplesmente estimamos o modelo por MQO, exatamente como antes, e usamos a estatística t habitual. 
+		\vfill
+		Nada muda na mecânica do MQO ou na teoria estatística quando algumas das variáveis independentes são definidas como variáveis dummy. A única diferença em relação ao que vínhamos fazendo até agora é a interpretação do coeficiente da variável dummy.
+		\vfill
+       
+        
+\end{frame}
+
+
+
+
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+		
+		\begin{tcolorbox}
+			\indent\textbf{\small{Exemplo 7.1 (Equação dos Salários por Hora)}}\\
+		\begin{equation}
+		\begin{split}
+		\small{{salarioh} = -1.57 -  1.81 {feminino} + 0.572 { educ }
+		\\ \centerline{\scriptsize{$(0.72)$ \hspace{2em} $(0.26)$ \hspace{6em}$(0.049)$}} 
+		\\ \centerline{$+ 0.025{exper} + 0.141{perm}$}} 
+		\\ \centerline{\scriptsize{$(0.012)$ \hspace{5em} $(0.021)$}}\nonumber
+	    \\ \centerline{\footnotesize{$(n = 526)$ \hspace{0.5em} $(R^2 = 0.364)$}}\nonumber
+		 \end{split} 
+		\end{equation}
+		\\ \scriptsize {O intercepto negativo - para os homens, neste caso - não é muito significativo, já que ninguém na amostra tem anos de $educ$, $exper$ e $perm$ próximos de zero. O coeficiente de feminino é interessante pois registra a diferença média no salário por hora entre uma mulher e um homem, dados os mesmos níveis de $educ$, $exper$ e $perm$. Se compararmos uma mulher e um homem com os mesmos níveis de educação, experiência e permanência, a mulher ganha, em média, 1.81 dólares por hora a menos que o homem}.
+		\end{tcolorbox}
+	\end{frame}
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Exemplo 7.1 (Continuação)}}\\
+		\\ \footnotesize{É esclarecedor comparar o coeficiente de feminino na equação anterior com a estimativa que obtemos quando todas as outras variáveis explicativas são eliminadas da equação}:
+		\small
+		\begin{equation}
+		\begin{split}
+		\small{{salarioh} = 7.10 -  2.51 {feminino}}\nonumber
+		\end{flushleft}
+		\\ \centerline{\footnotesize{$(0.21)$ \hspace{0.5em} $(0.30)$}}\nonumber
+		\\ \centerline{\footnotesize{$(n = 526)$ \hspace{0.5em} $(R^2 = 0.116)$}}
+        \end{split}
+		\footnotesize {Os coeficientes acima têm uma interpretação simples. O intercepto é o salário-hora médio dos homens na amostra ($feminino = 0$), de modo que os homens ganham, em média, $7.1$ dólares por hora. O coeficiente de feminino é a diferença no salário médio entre homens e mulheres. Assim, o salário médio das mulheres, na amostra, é $7.10$ - $2.51$ = $4.59$, ou $4.59$ dólares por hora}.
+		\end{tcolorbox}
+	\end{frame}
+
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+		\justifying
+		\begin{tcolorbox}
+			\indent\textbf{\small{A Interpretação dos Coeficientes de Variáveis Dummy Explicativas quando a Variável Dependente é Expressa como $log(y)$}} \\
+		\\ \small {Uma especificação comum em trabalhos aplicados tem a variável dependente aparecendo naforma logarítmica, com uma ou mais variáveis dummy aparecendo como variáveis independentes}.\\
+		\\ \small{ Como interpretamos os coeficientes das variáveis dummy neste caso?}\\ 
+	   	\\ \small{ Não surpreendentemente, os coeficientes têm uma interpretação percentual}.
+		\end{tcolorbox}
+	\end{frame}
+
+\begin{frame}{Uma Única Variável Dummy Independente}
+		\justifying
+		\begin{tcolorbox}
+			\indent\textbf{\small{A Interpretação dos Coeficientes de Variáveis Dummy Explicativas quando a Variável Dependente é Expressa como $log(y)$}} \\
+		\\ \small {De forma geral, se $\hat{\beta_{1}}$ for o coeficiente de uma variável $dummy$, digamos, $x_1$, quando $log(y)$ é a variável dependente, a diferença percentual exata em y previsto quando $x_1$ = $1$ versus quando $x_1 = 0$ é}\\
+		\\\centerline{ \small{ $100$ . [exp($\hat{\beta_{1}}) - 1$].}}\\ 
+	   	\\ \small{O coeficiente $\hat{\beta_{1}}$ estimado pode ser positivo ou negativo, e é importante preservar seu sinal ao computar}.
+		\end{tcolorbox}
+	\end{frame}
+
+
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\justifying
+		\vfill 
+		Podemos usar diversas variáveis dummy independentes na mesma equação. 
+		\vfill
+       Por exemplo, estimemos um modelo que considere diferenças salariais entre quatro grupos: homens casados, mulheres casadas, homens solteiros e mulheres solteiras.
+		\vfill
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\justifying
+		\vfill 
+		Para fazermos isso temos que selecionar um grupo base; escolhemos homens solteiros. 
+		\vfill
+       Então, devemos definir as variáveis dummy para cada um dos demais grupos. Vamos chamá-los $hcasados$, $mcasadas$ e $msolteiras$.
+       \vfill 
+	    Colocando essas três variáveis na equação (e eliminando feminino, já que agora ela é redundante) temos que:
+		\vfill
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\begin{tcolorbox}
+			\indent\textbf{Exemplo 7.6 \small{(Equação do Log do Salário-Hora)}}\\
+		\small
+		\begin{equation}
+		\begin{split}
+		\small{{\hat{log(salarioh)}} = 0.321 +  0.213 {hcasados} - 0.198{mcasadas}
+		\\ \centerline{\scriptsize{$(0.100)$ \hspace{2em} $(0.055)$ \hspace{6em}$(0.058)$}} 
+		\\ \leftline{$ + 0.110{msolteiras} + 0.079{educ} + 0.027{exper}$}
+		\\ \centerline{\scriptsize{$(0.056)$ \hspace{6em}$(0.007)$ \hspace{2em} $(0.005)$}}\nonumber
+		\\ \leftline{$ - 0.00054{exper^2} + 0.029{perm} + 0.00053{perm^2}$}}
+		\\ \centerline{\scriptsize{$(0.00011)$\hspace{3em}$(0.007)$ \hspace{3em} $(0.00023)$}}\nonumber
+	    \\ \centerline{\scriptsize{$(n = 526)$ \hspace{1em} $(R^2 = 0.461)$}}\nonumber
+		 \end{split} 
+		\end{equation}
+		\footnotesize {Todos os coeficientes, exceto o de $msolteiras$, têm estatísticas $t$ bem acima de dois, em valores absolutos. A estatística $t$ de $msolteiras$ está em torno de $-1,96$, que é significante apenas ao nível de $5$ contra uma alternativa bilateral}.
+	   \end{tcolorbox}
+
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\justifying
+		\vfill 
+	Para interpretar os coeficientes das variáveis $dummy$, devemos nos lembrar de que o grupo base é o
+    de homens solteiros. 
+        \vfill
+        Assim, as estimativas das três variáveis $dummy$ medem a diferença proporcional nos salários relativamente aos homens solteiros.
+       \vfill 
+	    
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\justifying
+		\vfill
+       Por exemplo, estima-se que os homens casados ganhem cerca de $21,3\%$ mais que os homens solteiros, mantendo fixas educação, experiência e permanência.
+        \vfill
+       Uma mulher casada, no entanto, deve ganhar $19,8\%$ menos que um homem solteiro com os mesmos níveis das outras variáveis.
+       \vfill 
+	    
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\justifying
+		\vfill
+       O exemplo anterior ilustra um princípio geral para a inclusão de variáveis dummy que indicam grupos diferentes:  se o modelo de regressão deve ter diferentes interceptos para, digamos, $g$ grupos ou categorias, precisamos incluir $g - 1$ variáveis dummy no modelo, juntamente com um intercepto.
+        \vfill
+       O intercepto do grupo base é o intercepto global no modelo, e o coeficiente da variável dummy de um determinado grupo representa a diferença estimada nos interceptos entre aquele grupo e o grupo base.
+       \vfill 
+	    
+       
+\end{frame}
+} 
+ 
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\justifying
+		\vfill
+       A inclusão de $g$ variáveis dummy juntamente com um intercepto resultará na armadilha da variável $dummy$.
+        \vfill
+       Uma alternativa é incluir $g$ variáveis $dummy$ e excluir um intercepto global.
+       \vfill 
+	   Isso não é recomendável, pois o teste de diferenças relativas a um grupo base se tornará difícil, e alguns programas de regressão alteram a maneira como o $R^2$ é computado quando a regressão não contém um intercepto.
+	   \vfill
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Incorporação de Informações Ordinais com o Uso de Variáveis Dummy}}\\ 
+			\\ \footnotesize{Suponha que gostaríamos de estimar o efeito do risco de crédito das cidades sobre as taxas de juros dos títulos públicos municipais ($TTM$). Suponha ainda que a classificação varie de zero a quatro, na qual zero é o pior risco de crédito e quatro, o melhor. Este é um exemplo de uma \textbf{variável ordinal}, a qual chamaremos de $CR$}.
+			\begin{equation}
+			TTM = \beta_{0} + \beta_{1}CR + outros fatores,\label{eq1}\nonumber
+			\end{equation}
+		   \footnotesize{onde deliberadamente não mostramos quais são os outros fatores. Neste caso, $\beta_{1}$ é a mudança em pontos percentuais em $TTM$ quando $CR$ aumenta uma unidade, mantendo fixos todos os outros fatores.}
+			
+		\end{tcolorbox}
+       
+\end{frame}
+}
+ 
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Incorporação de Informações Ordinais com o Uso de Variáveis Dummy}}\\ 
+			\\ \footnotesize{Infelizmente, é bastante difícil interpretar um aumento de uma unidade em $CR$. Sabemos o significado quantitativo de mais um ano de educação, ou de um dólar a mais gasto por aluno, mas fatores como risco de crédito, em geral, têm apenas significado ordinal.}\\
+		  \\ \footnotesize{Sabemos que um  $CR$ de quatro é melhor que um $CR$ de três, mas será que a diferença entre quatro e três é a mesma que a diferença entre um e zero? Se não, não fará sentido assumir que um aumento de uma unidade em $CR$ terá um efeito constante sobre $TTM$.}\\
+	
+		\end{tcolorbox}
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Incorporação de Informações Ordinais com o Uso de Variáveis Dummy}}\\ 
+			\\ \footnotesize{Uma abordagem melhor que podemos implementar, pois $CR$ assume relativamente poucos valores,é definir variáveis dummy para cada valor de $CR$.}\\	
+			\\ \footnotesize{Assim, definimos $CR1 = 1$ se $CR = 1$, e, caso contrário, $CR 1 = 0$, $CR2 = 1$ se $CR = 2$ e, caso contrário, $CR2 = 0$, e assim por diante.}\\
+			\\ \footnotesize{ Na realidade, levamos em conta o risco de crédito e o transformamos em cinco categorias. Desta forma podemos estimar o segiunte modelo:}
+			
+			\begin{equation}
+			TTM = \beta_{0} + \delta_{1}CR_1 + \delta_{2}CR_2 + \delta_{3}CR_3 + \delta_{4}CR_4 + outros fatores.\label{eq1}\nonumber
+			\end{equation}
+		 
+			
+		\end{tcolorbox}
+       
+\end{frame}
+}
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Variáveis $Dummy$ para Categorias Múltiplas}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Incorporação de Informações Ordinais com o Uso de Variáveis Dummy}}\\ 
+			
+		   \footnotesize{Seguimos nossa regra sobre inclusão de variáveis dummy em um modelo, incluindo quatro, já que temos cinco categorias. Omitiu-se a categoria risco de crédito zero, pois ela é o grupo base.} \\
+		   \\ \footnotesize{Os coeficientes são de fácil interpretação: $\delta_{1}$ é a diferença em $TTM$ entre uma cidade com risco de crédito um e outra com risco de crédito zero: $\delta_{2}$ é a diferença em $TTM$ entre uma cidade com um risco de crédito dois e outra com risco de crédito zero; e assim por diante.}
+			
+		\end{tcolorbox}
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações Envolvendo Variáveis $Dummy$}
+		\justifying
+		\vfill
+        Assim como as variáveis com significados quantitativos podem interagir em modelos de regressão, as variáveis $dummy$ também podem. 
+        \vfill
+        Vimos uma ilustração disso no Exemplo 7.6, no qual definimos quatro categorias com base em estado civil e gênero. 
+        \vfill
+        Podemos reformular aquele modelo adicionando um termo de interação entre feminino e casado, onde essas variáveis apareçam separadamente. Isso possibilita que o prêmio por ser casado dependa do gênero.
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações Envolvendo Variáveis $Dummy$}
+		\justifying
+		\vfill
+        Com o propósito de comparação, o modelo estimado com o termo de interação feminino-casado é:\\
+       	\begin{equation}
+		\begin{split}
+		\small{\hat{{log(salario)}} = 0.321 -  0.110 {feminino} + 0.213 {casado}
+		\\ \centerline{\scriptsize{$(0.100)$ \hspace{2em} $(0.056)$ \hspace{7em}$(0.055)$}} 
+		\\ \centerline{$ + 0.301{feminino*casado} + ...$}} 
+		\\ \centerline{\scriptsize{$(0.072)$}}\nonumber
+		 \end{split} 
+		\end{equation}
+		onde o restante da regressão será necessariamente idêntico ao exemplo 7.6. \\
+\end{frame}		
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações Envolvendo Variáveis $Dummy$}
+		\justifying
+		\vfill
+       A equação anterior mostra que existe uma interação estatisticamente significante entre gênero e estado civil.  valores zero e um. 
+       \vfill
+       Este modelo também permite obter o diferencial estimado de salários entre todos os quatro grupos, mas aqui devemos ter o cuidado de inserir a correta combinação de valores zero e um.
+        \vfill
+      
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações Envolvendo Variáveis $Dummy$}
+		\justifying
+       \vfill
+       A definição $feminino = 0$ e $casado = 0$ corresponde ao grupo de homens solteiros, que é o grupo base, já que isso elimina $feminino$, $casado$, e $feminino*casado$.
+        \vfill
+        Podemos encontrar o intercepto de homens casados definindo $feminino = 0$ e $casado = 1$ na regressão; isso produz um intercepto de $0,321 + 0,213 = 0,534$, e assim por diante.
+        \vfill
+      
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Consideração de Inclinações Diferentes}}\\ 
+			\\ \footnotesize{Vimos vários exemplos de como permitir diferentes interceptos para qualquer número de grupos em um modelo de regressão múltipla}.\\
+			\\ \footnotesize{Também existem casos de interação de variáveis dummy com variáveis explicativas que não são dummy para permitir uma diferença nas inclinações.}
+			\begin{equation}
+			log(salarioh) = (\beta_{0} + \delta_{0}feminino) + (\beta_{1} + \delta_{1}feminino)educ + u.\label{eq1}\nonumber
+			\end{equation}
+		   \footnotesize{Se fizermos $feminino = 0$, veremos que o intercepto de homens é $\beta_{0}$, enquanto a inclinação na educação dos homens é $\beta_{1}$. Para as mulheres, usamos $feminino = 1$; assim, o intercepto para as mulheres será $\beta_{0} + \delta_{0}$ e a inclinação será $\beta_{1} + \delta_{1}$ Portanto, $\delta_{0}$ mede a diferença nos interceptos entre mulheres e homens, enquanto ô 1 mede a diferença no retomo da educação entre mulheres e homens.}
+			
+		\end{tcolorbox}
+       
+\end{frame}
+} 
+ 
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações Envolvendo Variáveis $Dummy$}
+	 \begin{tcolorbox}
+	   \begin{figure}
+		\centering
+		\caption{\footnotesize{Gráficos da equação anterior. (a) $\delta_{0} < 0$, $\delta_{1} < 0$ ; (b) $\delta_{0}< 0$, $\delta_{1} > 0.$}}
+		\includegraphics[width=.825\textwidth]{figuras/figura cap 7 wooldrdige estagio doc.png}
+		\label{fig21}
+	\end{figure}
+			
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Consideração de Inclinações Diferentes}}\\ 
+			\\ \footnotesize{Dois dos quatro casos dos sinais de $\delta_{0}$ e $\delta_{1}$ são apresentados na figura anterior. O gráfico (a) mostra o caso em que o intercepto das mulheres está abaixo do intercepto dos homens, enquanto a inclinação da linha é menor para as mulheres do que para os homens. Isso significa que as mulheres ganham menos que os homens em todos os níveis de educação, e a diferença aumenta conforme educ se toma maior}.\\
+			\\ \footnotesize{No gráfico (b), o intercepto das mulheres está abaixo do intcrcepto
+            dos homens, mas a inclinação da educação é maior para as mulheres. Isso significa que as mulheres ganham menos que os homens em baixos níveis de educação, mas a diferença diminui conforme a educação aumenta. Em algum ponto, uma mulher ganhará mais que um homem, dado o mesmo nível de educação (e esse ponto é facilmente encontrado, dada a equação estimada).}
+			
+			
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Consideração de Inclinações Diferentes}}\\ 
+			\\ \footnotesize{Como podemos estimar o modelo da última equação? Para aplicar o MQO, devemos escrever o modelo com uma interação entre $feminino$ e $educ$}:\\
+			\begin{equation}
+			log(salarioh) = \beta_{0} + \delta_{0}feminino + \beta_{1}educ + \delta_{1}feminino*educ + u.\label{eq1}\nonumber
+			\end{equation}
+			\\ \footnotesize{Os parâmetros agora podem ser estimados a partir da regressão de log(salárioh) sobre $feminino,educ$, e $feminino*educ$. A obtenção do termo de interação é fácil com o uso de qualquer programa de regressão.}\\
+		    \\ \footnotesize{Nesta última equação, precisamos usar um teste F para testar $H_0 : \delta_{0} = 0, \delta_{1} = 1$. No modelo com apenas uma diferença de interceptos, rejeitamos essa hipótese, pois $H_0: \delta_{0} = 0$ é completamente rejeitada contra $H_0: \delta_{0} < 0$}.
+		\end{tcolorbox}
+       
+\end{frame}
+}
+
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+			\\ \footnotesize{Os exemplos anteriores ilustram que a interação de variáveis $dummy$ com outras variáveis independentes pode ser uma ferramenta poderosa.}\\
+			\\ \footnotesize{Algumas vezes, queremos testar a hipótese nula de que duas populações, ou grupos, seguem a mesma função de regressão, contra a hipótese alternativa de que uma ou mais das inclinações diferem entre os grupos.}\\
+		    \\ \footnotesize{Suponha que queiramos testar se o mesmo modelo de regressão descreve a nota média no curso superior de atletas universitários masculinos e femininos. A equação é} 
+		    	\begin{equation}
+			nmgradac = \beta_{0} + \beta_{1}sat + \beta_{2}emperc + \beta_{3}tothrs + u,\label{eq1}\nonumber
+			\end{equation}
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\footnotesize{Verificação de Diferenças nas Funções de Regressão entre Grupos (continuação)}}\\ 
+			\\ \footnotesize{onde $sat$ é a nota obtida no exame de ingresso em curso superior, $emperc$ é o percentil da classificação no ensino médio, e $tothrs$ é o total de horas do curso superior.}\\
+			\\ \footnotesize{Sabemos que para considerar uma diferença nos interceptos podemos incluir uma variável $dummy$ para $masculino$ ou $feminino$.}\\
+		    \\ \footnotesize{Se estivermos interessados em verificar se existe qualquer diferença entre homens e mulheres, então devemos admitir um modelo no qual o intercepto e todas as inclinações possam ser diferentes entre os grupos:}
+		    \begin{equation}
+		    \begin{split}
+			\RaggedRight{nmgradac = \beta_{0} + \delta_{0}feminino + \beta_{1}sat + \delta_{1}feminino*sat \\ 
+			+ \beta_{2}emperc 
+			+ \delta_{2}feminino*emperc + \beta_{2}emperc + \\
+			\beta_{3}tothrs + \delta_{3}feminino*tothrs + u}.\label{eq1}\nonumber
+			\end{split}
+			\end{equation}
+		\end{tcolorbox}
+       
+\end{frame}
+} 
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+			\\ \footnotesize{O parâmetro $\delta_{0}$ é a diferença nos interceptos entre mulheres e homens, $\delta_{1}$ é a diferença de inclinações em relação a $sat$ entre mulheres e homens, e assim por diante.}\\
+			\\ \footnotesize{A hipótese nula de que $nmgradac$ segue o mesmo modelo para homens e mulheres é escrita como}\\
+		    	\begin{equation}
+			 H_0 : \delta_{0} = 0 , \delta_{1} = 0 , \delta_{2} = 0 , \delta_{3} = 0. \nonumber 
+			 \end{equation}
+			 \\ \footnotesize{Se um dos $\delta_{j}$ for diferente de zero, então os modelos são diferentes para homens e mulheres.}
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+			\\ \footnotesize{No modelo geral com k variáveis explicativas e um intercepto, suponha que temos dois grupos, que chamaremos de $g = 1$ e $g = 2$.}\\
+		    \begin{equation}
+			y = \beta_{g,0} + \beta_{g,1}x_1 + \beta_{g,2}x_2 + ... + \beta_{g,k}x_k + u \label{eq1}\nonumber
+			\end{equation}
+			 \\ \footnotesize{para $g = 1$ e $g = 2$. A hipótese de que cada beta é o mesmo nos dois grupos envolve $k + 1$ restrições (no exemplo de $nmgradac$, $k + 1 = 4$)}.\\
+			 \\ \footnotesize{O modelo sem restrições, que pode ser entendido como tendo uma variável $dummy$ de grupo e $k$ termos de interação, além do intercepto e das próprias variáveis, tem $n - 2(k + 1)$ graus de liberdade}.
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+			\\ \footnotesize{A percepção básica é que a soma dos resíduos quadrados do modelo sem restrições pode ser obtida de duas regressões separadas, uma para cada grupo.}\\
+			 \\ \footnotesize{Seja $SQR_1$ a soma dos resíduos quadrados obtida ao estimar para o primeiro grupo; isso envolve $n_1$ observações.Seja $SQR_2$ a soma dos resíduos quadrados obtida ao estimar o modelo usando o segundo grupo ($n_2$ observações)}.\\
+			 \\ \footnotesize{A soma dos resíduos quadrados do modelo sem restrições é simplesmente $SQR_i_r = SQR_1 + SQR_2$, i.e., a soma dos resíduos quadrados restrita é somente a $SQR$ do agrupamento dos grupos e da estimativa de uma única equação, digamos $SQR_p$}.
+			 \begin{equation}
+			y = \beta_{g,0} + \beta_{g,1}x_1 + \beta_{g,2}x_2 + ... + \beta_{g,k}x_k + u \label{eq1}\nonumber
+			\end{equation}
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+			\\ \footnotesize{Uma vez calculados esses termos, computamos a estatística $F$ da forma habitual:}\\
+			 \small
+			 \\ \centerline{$F$ = {[$SQR_p$ - ($SQR_1 + SQR_2$)]/ ($SQR_1 + SQR_2$)}}\\
+			\\ \centerline{*} \\
+			 \\ \centerline{ [$n - 2(k + 1)$]/($k + 1$)}\\ 
+		\\ \footnotesize{onde $n$ é o número total de observações. Esta estatística $F$ específica é usualmente chamada em econometria de  \textbf{estatística de Chow.} Como o teste de Chow é apenas um teste F, ele só é válido sob homoscedasticidade. Em particular, sob a hipótese nula, as variâncias dos erros dos dois grupos devem ser iguais}.
+	
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+			\\ \footnotesize{Como sempre, a normalidade não é necessária para a análise assimptótica.}\\
+		\\ \footnotesize{Uma limitação importante do teste de Chow, independentemente do método usado para implementá-lo, é a hipótese nula não permitir nenhuma diferença entre os grupos. Em muitos casos, é mais interessante considerar uma diferença nos interceptos entre os grupos e depois verificar as diferenças das inclinações}.\\
+	    \\ \footnotesize{Há duas maneiras de fazermos com que os interceptos difiram sob a hipótese nula}.\\
+	  
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+{
+\setbeamerfont{frametitle}{size=\Large}
+\begin{frame}{Interações envolvendo Variáveis $Dummy$}
+		\begin{tcolorbox}
+			\indent\textbf{\small{Verificação de Diferenças nas Funções de Regressão entre Grupos}}\\ 
+		 \\\footnotesize{Uma delas é incluir a dummy do grupo e todos os termos de interação, mas apenas testar a significância conjunta dos termos de interação.}\\	
+		\\ \footnotesize{ A segunda é calcular uma estatística $F$ (como na última equação), mas onde a soma de quadrados restrita, chamada $SQR_p$, é obtida pela regressão que permite somente um deslocamento do intercepto}.\\
+	    \\ \footnotesize{Em outras palavras, computamos uma regressão agrupada e apenas incluímos as variáveis $dummy$ que distinguem os dois grupos.}\\
+		\end{tcolorbox}
+       
+\end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying
+       \vfill
+      Nas últimas seções, estudamos como podemos incorporar informações qualitativas, por exemplo, variáveis explicativas em um modelo de regressão múltipla, por meio do uso de variáveis independentes binárias.
+        \vfill
+       Em todos os modelos vistos até agora, a variável dependente $y$ teve um significado $quantitativo$ ($y$ é um montante em dólares, uma pontuação em um teste, uma percentagem, ou seus $logs$, etc).
+      
+        \end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying
+       \vfill
+        O que acontece se quisermos usar regressão múltipla para $explicar$ um evento qualitativo?
+        \vfill
+        No caso mais simples o evento que gostaríamos de explicar - e que aparece com muita frcqüência na prática - é um resultado binário.
+        \vfill
+        Em outras palavras, nossa variável dependente, $y$, assume somente um dos dois valores: zero ou um.
+        \end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying
+       \vfill
+       Por exemplo, $y$ pode ser definido para indicar se um adulto concluiu o ensino médio;
+        \vfill
+        $y$ pode indicar se um aluno do curso superior usou drogas ilegais durante determinado ano escolar;
+        \vfill
+        ou y pode indicar se uma empresa foi absorvida por outra durante determinado ano.
+        \vfill
+        Em cada um desses exemplos, podemos definir que $y = 1$ represente um dos resultados e $y = 0$, o outro.
+        \end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying 
+        \vfill
+        Isso significaria escrever um modelo de regressão múltipla, tal como:
+        \begin{equation}
+        y = \beta_{0} + \beta_{1}x_1 + ... + \beta_{k}x_k + u, \nonumber
+        \end{equation}
+        quando $y$ for uma variável binária? Como $y$ pode assumir somente dois valores, $\beta_{j}$ não pode ser interpretado como a mudança em $y$ devido ao aumento de uma unidade em $x_j$, mantendo fixos todos os
+        outros fatores: $y$ somente muda de zero para um ou de um para zero. No entanto, os coeficientes $\beta_{j}$ ainda têm interpretações úteis.
+        \end{frame}
+}  
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying 
+         Se assumirmos que a hipótese de média condicional zero RLM.3 é válida, i.e., $E(u|x_1, ... ,x_k) = 0$, então teremos, como sempre,
+        \begin{equation}
+        E(y|x) = \beta_{0} + \beta_{1}x_1 + ... + \beta_{k}x_k, \nonumber
+        \end{equation}
+        onde $x$ é uma forma abreviada que representa todas as variáveis explicativas.
+        \vfill
+        O ponto principal é que, quando $y$ é uma variável binária assumindo os valores zero e um, é sempre verdade que $P(y = 1|x) = E(y|x)$: a probabilidade de "sucesso" - i.e., a probabilidade de que $y = 1$ - é a mesma do valor esperado de $y$. Assim, temos a importante equação
+        
+        \end{frame}
+}  
+   
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying 
+        \begin{equation}
+        P(y = 1|x) = \beta_{0} + \beta_{1}x_1 + ... + \beta_{k}x_k, \nonumber
+        \end{equation}
+       que mostra a probabilidade de sucesso, digamos, $p(x) = P(y = 1 |x)$, uma função linear de $x_j$. 
+        \vfill 
+        A equação acima é um exemplo de modelo de resposta binária, e $P(y = 1 |x)$  \textbf{também é chamado de probabilidade de resposta}. Como a soma das probabilidades deve ser um, $P(y = O|x) = 1 - P(y = 1 |x)$ também é uma função linear de $x_j$.
+        \end{frame}
+}  	
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying 
+		\vfill
+         O modelo de regressão linear múltipla com uma variável dependente binária é chamado de \textbf{modelo de probabilidade linear (MPL)} porque a probabilidade de resposta é linear nos parâmetros $\beta_j$· No MPL, $\beta_j$ mede a mudança na probabilidade de sucesso quando $x_j$ muda, mantendo fixos os outros fatores: 
+        \begin{equation}
+        \Delta P(y = 1|x) = \beta_j \Delta x_j . \nonumber
+        \end{equation}
+         Com isso em mente, o modelo de regressão múltipla pode nos permitir estimar o efeito de diversas variáveis explicativas sobre eventos qualitativos. A mecânica do MQO é a mesma de antes. 
+        \end{frame}
+}  	
+
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Uma Variável Dependente Binária: O Modelo de Probabilidade Linear}
+		\justifying 
+		\vfill
+        Se escrevermos a equação estimada como 
+        \begin{equation}
+        \hat{y} = \hat{\beta_0} + \hat{\beta_1} x_1 + ... + \hat{\beta_k} x_k , \nonumber
+        \end{equation} 
+        \vfill 
+        temos que nos lembrar que $y$ é a probabilidade de sucesso prevista. Portanto, $\hat{\beta_0}$ é a probabilidade de sucesso prevista quando cada $x_j$ é definido como zero, o que pode, ou não, ser interessante. O coeficiente de inclinação $\hat{\beta_1}$ mede a mudança prevista na probabilidade de sucesso quando $x_1$ aumenta em uma unidade. 
+
+        \end{frame}
+}  	
+
+
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Conclusões}
+		\justifying 
+		\vfill
+       Neste capítulo aprendemos como usar informações qualitativas na análise de regressão. 
+       \vfill
+       No caso mais simples, uma variável $dummy$ é definida para fazer a distinção entre dois grupos, e o coeficiente estimado da variável dummy estima a diferença 0ceteris paribus entre os dois grupos. 
+        \vfill 
+       As variáveis $dummy$ também são úteis para incorporar infornações ordinais, como classificações de crédito e de aparência pessoal, em modelos de regressão. 
+       
+
+        \end{frame}
+}  	
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Conclusões}
+		\justifying 
+		\vfill
+        Simplesmente definimos um conjunto de variáveis dummy representando os diferentes resultados da variável ordinal, admitindo uma das categorias como grupo base. 
+       \vfill
+       Para possibilitar diferenças de inclinações entre os diferentes grupos, as variáveis $dummy$ podem interagir com variáveis quantitativas. 
+        \vfill 
+       No caso extremo, podemos permitir que cada grupo tenha sua própria inclinação em todas as variáveis, como também seu próprio intercepto. 
+       
+
+        \end{frame}
+}  	
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Conclusões}
+		\justifying 
+		\vfill
+        O teste de Chow pode ser usado para detectar se existem quaisquer diferenças entre os grupos. Em muitos casos, é mais interessante verificar se, após termos permitido uma diferença de interceptos, as inclinações de dois grupos diferentes são as mesmas.
+       \vfill
+       Um teste F padrão pode ser usado para esse propósito em um modelo irrestrito que inclua interações entre a dummy do grupo e todas as variáveis.
+        \vfill 
+      
+       
+
+        \end{frame}
+}  	
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Conclusões}
+		\justifying 
+		\vfill
+        O modelo de probabilidade linear, que é simplesmente estimado pelo MQO, possibilita explicar uma resposta binária usando análise de regressão. 
+       \vfill
+      As estimativas MQO agora são interpretadas como alterações na probabilidade de "sucesso" $(y = 1)$, dado um aumento de uma unidade na variável explicativa correspondente.
+        \vfill 
+      
+       
+
+        \end{frame}
+}  	
+
+{
+\setbeamerfont{frametitle}{size=\large}
+\begin{frame}{Conclusões}
+		\justifying 
+		\vfill
+        O \textbf{MPL} tem algumas inconveniências: pode produzir probabilidades previstas menores que zero ou maiores que um, implica um efeito marginal constante de cada variável explicativa que aparece em sua forma original, e contém heteroscedasticidade.
+       \vfill 
+       Os primeiros dois problemas muitas vezes não são graves quando estamos obtendo estimativas dos efeitos parciais das variáveis explicativas na faixa intermediária dos dados.
+        \vfill 
+        A heteroscedasticidade invalida os erros-padrão usuais do MQO e as estatísticas de testes mas, como veremos no próximo capítulo, isso é facilmente corrigido em amostras suficientemente grandes.
+       
+
+        \end{frame}
+}  	
+
+	
+\end{document}
